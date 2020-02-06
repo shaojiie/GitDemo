@@ -1,6 +1,5 @@
 # 1.导入所需模块
 import requests
-hdhdh
 
 # 2.读取json文件
 url = 'http://pvp.qq.com/web201605/js/herolist.json'
