@@ -11,3 +11,5 @@ git pull 命令基本上就是 git fetch 和 git merge 命令的组合体，Git 
 
 
 git pull origin master
+
+git pull origin master --allow-unrelated-histories
