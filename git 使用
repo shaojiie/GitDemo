@@ -1,0 +1,9 @@
+ssh-keygen -t rsa -C "shaojie3266@gmail.com"
+
+ Git add
+Git commit
+
+Git push -u origin master 
+Git pull 
+
+Fork
