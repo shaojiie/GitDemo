@@ -13,3 +13,6 @@ git pull 命令基本上就是 git fetch 和 git merge 命令的组合体，Git 
 git pull origin master
 
 git pull origin master --allow-unrelated-histories
+
+
+之后打开Git Bash,在里面输入git clone + 上面得到的代码地址
