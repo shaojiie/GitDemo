@@ -3,6 +3,8 @@ ssh-keygen -t rsa -C "shaojie3266@gmail.com"
  Git add
 Git commit
 
+git commit -m "add merge" 提交一个新的commit
+
 Git push -u origin master 
 Git pull 
 
