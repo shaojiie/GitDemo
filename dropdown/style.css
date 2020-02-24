@@ -44,3 +44,70 @@ html,body{
 #navbar ul li:hover a{
     color: #fff;
 }
+
+/* nested dropdwon show */
+
+#navbar ul li:hover ul{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 200px;
+    margin-top: 1rem;
+}
+
+#navbar ul li:hover ul li{
+    display: block;
+    background: #e7e7e7;
+}
+
+#navbar ul li:hover ul li a{
+ color: #333;
+}
+
+#navbar ul li:hover ul li:hover{
+    background: #e0e0e0;
+    color: inherit;
+}
+
+#navbar ul li:hover ul li span{
+    float: right;
+    color: #fff;
+    background:var(--primary-color);
+    padding: 0.2rem 0.5rem;
+    text-align: center ;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+#navbar ul li:hover ul li:hover span{
+    background: var(--secondary-color);
+}
+
+/* showcase */
+#showcase{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center ;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: coral;
+}
+
+#showcase h1{
+    color: #fff;
+    font-size: 4rem;
+}
+
+/* media */
+@media(max-with: 600px){
+    #navbar ul li{
+        display: block;
+    }
+
+    #navbar ul li:hover ul{
+        width: 100%;
+        position: relative;
+    }
+}
