@@ -36,7 +36,7 @@ html,body{
 }
 
 #navbar ul li:hover{
-    cursor: pointer;
+       display : pointer;
     background: var(--primary-color);
     color: #fff;
 }
