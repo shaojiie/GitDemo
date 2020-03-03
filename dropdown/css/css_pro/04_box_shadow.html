@@ -14,6 +14,19 @@
             margin: 1rem;
             background: coral;
             color: #fff;
+
+            /* offset-x  offset-y */
+            box-shadow: 10px 10px teal;
+            /* offset-x  offset-y |blue-raduis|color*/
+            box-shadow: 5px 5px 20px teal;
+            /* negative */
+            box-shadow: -5px -5px 20px teal;
+            /* offset-x  offset-y |blue-radius|spread-radius|color*/
+            box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.6);
+            /* offset-x  offset-y |color|inset*/
+            box-shadow: -5px -5px teal inset;
+            /* multiple shadows */
+            box-shadow: 3px 3px 10px blue,-3px -3px 10px green;
         }
     </style>
 </head>
