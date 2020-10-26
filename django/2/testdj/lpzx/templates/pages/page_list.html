@@ -5,8 +5,9 @@
 {{object_list}}
 
 {% for instance in object_list %}
-	<p>{{instance.id }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.title}}</a>
+	<p>{{instance.id }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a>
 			<a href="{{ instance.del_absolute_url }}">delete</a>
+			<a href="{{ instance.update_absolute_url }}">update</a>
 	</p>
 {% endfor %}
 

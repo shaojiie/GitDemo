@@ -75,32 +75,37 @@ WSGI_APPLICATION = 'testdj.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': 
-    { 
-        # 'ENGINE': 'sql_server.pyodbc',    # 数据库引擎 django-informixdb
-        'ENGINE': 'django_informixdb',    # 数据库引擎 django-informixdb
-        'SERVER': 'yndbsvr3',
-        'NAME': 'yn5301', # 数据库名称
-        'HOST': '70.1.32.82', # 数据库地址，本机 ip 地址 127.0.0.1 
-        'PORT': 2691, # 端口 
-        'USER': 'query',  # 数据库用户名
-        'PASSWORD': 'query333', # 数据库密码
-        'OPTIONS': {
-            'DRIVER': 'IBM INFORMIX ODBC DRIVER', # Or iclit09b.dylib on macOS
-            'CPTIMEOUT': 120,
-            'CONN_TIMEOUT': 120,
-            'ISOLATION_LEVEL': 'READ_UNCOMMITTED',
-            'LOCK_MODE_WAIT': 0,
-            'VALIDATE_CONNECTION': True,
-        },
-        'CONNECTION_RETRY': {
-            'MAX_ATTEMPTS': 10,
-        },
-        'TEST': {
-            'NAME': 'yn5301',
-            'CREATE_DB': False
-            },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    
+    # 'default': 
+    # { 
+    #     # 'ENGINE': 'sql_server.pyodbc',    # 数据库引擎 django-informixdb
+    #     'ENGINE': 'django_informixdb',    # 数据库引擎 django-informixdb
+    #     'SERVER': 'yndbsvr3',
+    #     'NAME': 'yn5301', # 数据库名称
+    #     'HOST': '70.1.32.82', # 数据库地址，本机 ip 地址 127.0.0.1 
+    #     'PORT': 2691, # 端口 
+    #     'USER': 'query',  # 数据库用户名
+    #     'PASSWORD': 'query333', # 数据库密码
+    #     'OPTIONS': {
+    #         'DRIVER': 'IBM INFORMIX ODBC DRIVER', # Or iclit09b.dylib on macOS
+    #         'CPTIMEOUT': 120,
+    #         'CONN_TIMEOUT': 120,
+    #         'ISOLATION_LEVEL': 'READ_UNCOMMITTED',
+    #         'LOCK_MODE_WAIT': 0,
+    #         'VALIDATE_CONNECTION': True,
+    #     },
+    #     'CONNECTION_RETRY': {
+    #         'MAX_ATTEMPTS': 10,
+    #     },
+    #     'TEST': {
+    #         'NAME': 'yn5301',
+    #         'CREATE_DB': False
+    #         },
+    # }
 }
 
 
