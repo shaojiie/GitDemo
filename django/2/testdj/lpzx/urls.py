@@ -1,4 +1,6 @@
 from django.urls import path
+from lpzx import views as view
+from django.conf.urls import url
 
 from .views import (
     Detail_View,
@@ -7,7 +9,7 @@ from .views import (
     Update_View,
     Delete_View
     )
-Update_View
+
 app_name = "lpzx"
 urlpatterns = [
     path('', List_View.as_view(),name='lpzx-list'),
@@ -15,5 +17,6 @@ urlpatterns = [
     path('<int:id>/', Detail_View.as_view(),name='lpzx-detail'),
     path('<int:id>/update/', Update_View.as_view(),name='lpzx-update'),
     path('<int:id>/delete/', Delete_View.as_view(),name='lpzx-delete'),
+    url(r'^$', view.index),
 # 
 ]

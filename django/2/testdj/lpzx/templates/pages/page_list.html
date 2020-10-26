@@ -2,10 +2,11 @@
 
 {% block content %}
 <h1>this is article test</h1>
-{{object_list}}
 
+{{object_list}}
+<h2><a href="create/">create</a></h2>
 {% for instance in object_list %}
-	<p>{{instance.id }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a>
+	<p>{{instance.as_p }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a>
 			<a href="{{ instance.del_absolute_url }}">delete</a>
 			<a href="{{ instance.update_absolute_url }}">update</a>
 	</p>

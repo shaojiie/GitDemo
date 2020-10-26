@@ -1,5 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.urls import reverse
+from django.http import HttpResponse
+
 # Create your views here.
 from django.views.generic import (
 	CreateView,
@@ -11,6 +13,10 @@ from django.views.generic import (
 
 from .models import user
 from .forms import CreateForm
+
+
+def index(request): 
+    return render(request, 'index.html')
 
 class Create_View(CreateView):
 	template_name = 'pages/page_create.html'

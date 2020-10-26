@@ -22,6 +22,10 @@ class user(models.Model):
 		# return f"/product/{self.id}/delete/"
 		return reverse("lpzx:lpzx-update",kwargs={"id": self.id})
 
+	def create_absolute_url(self):
+		return f"/lpzx/create/"
+		# return reverse("lpzx:lpzx-create",kwargs={})
+
 	# def del_absolute_url(self):
 	# 	# return f"/product/{self.id}/delete/"
 	# 	return reverse("lpzx:lpzx-delete",kwargs={"id": self.id})
