@@ -1,7 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By 
 import time
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
+# driver = webdriver.IEDriver();
+driver = webdriver.Ie(executable_path="IEDriverServer.exe");
+sql = "aa"
+error_sql = "CREATE TABLE django_admin_log (id serial NOT NULL PRIMARY KEY, action_time datetime year to fraction(5) NOT NULL, object_id lvarchar(None) NULL, object_repr lvarchar(200) NOT NULL, action_flag smallint NOT NULL CHECK (action_flag >= 0), change_message lvarchar(None) NOT NULL, content_type_id integer NULL, user_id integer NOT NULL)"
+replace_sql = "CREATE TABLE django_admin_log (id serial NOT NULL PRIMARY KEY, action_time datetime year to fraction(5) NOT NULL, object_id lvarchar(None) , object_repr lvarchar(200) NOT NULL, action_flag smallint NOT NULL CHECK (action_flag >= 0), change_message lvarchar(None) NOT NULL, content_type_id integer , user_id integer NOT NULL)"
+if sql == error_sql:
+	ql = replace_sql
+print(sql)
+
 #driver.maximize_window()
 driver.implicitly_wait("1")
 # url="https://email.picc.com.cn/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2femail.picc.com.cn%2fowa%2f"
