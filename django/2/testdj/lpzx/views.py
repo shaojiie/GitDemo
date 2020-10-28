@@ -18,6 +18,9 @@ from .forms import CreateForm
 def index(request): 
     return render(request, 'index.html')
 
+def Date_View(request):
+	return render(request, 'pages/date.html')
+
 class Create_View(CreateView):
 	template_name = 'pages/page_create.html'
 	form_class = CreateForm
