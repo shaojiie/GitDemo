@@ -5,11 +5,54 @@
 
 {{object_list}}
 <h2><a href="create/">create</a></h2>
-{% for instance in object_list %}
-	<p>{{instance.as_p }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a>
+
+<!-- 	<p>{{instance.as_p }} - <a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a>
 			<a href="{{ instance.del_absolute_url }}">delete</a>
 			<a href="{{ instance.update_absolute_url }}">update</a>
 	</p>
-{% endfor %}
+ -->
+
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>comname</th>
+                <th>groupname</th>
+                <th>usercode</th>
+                <th>username</th>
+                <th>post</th>
+                <th>postcode</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{% for instance in object_list %}
+            <tr>
+                <td><a href= '{{ instance.get_absolute_url }}'>{{instance.comname}}</a></td>
+                <td>{{instance.groupname}}</td>
+                <td>{{instance.usercode}}</td>
+                <td>{{instance.username}}</td>
+                <td>{{instance.post}}</td>
+                <td>{{instance.postcode}}</td>
+                <td><a href="{{ instance.update_absolute_url }}">update</a></td>
+                <td><a href="{{ instance.del_absolute_url }}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>comname</th>
+                <th>groupname</th>
+                <th>usercode</th>
+                <th>username</th>
+                <th>post</th>
+                <th>postcode</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
 
 {% endblock %}
