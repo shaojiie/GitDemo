@@ -1,27 +1,73 @@
 {% extends 'base.html' %}
 {% block anther_content_area %}
-<!-- <link href="../templates/css/date.css" rel="stylesheet"> -->
-<!-- <link href="./date.css" rel="stylesheet"> -->
+<link href="/static/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<link href="/static/bootstrap/css/bootstrap-datepicker3.css" rel="stylesheet">
+<!-- <link href="../templates/pages/date.css" rel="stylesheet"> -->
+<!-- <link href="date.css" rel="stylesheet"> -->
 {% endblock %}
 
 {% block content %}
+<form action='.' method="POST"> {% csrf_token %}
+<!-- ---------------------------- -->
+	<h1>定损清单</h1>
+	<div class="row">  
+	    <div class='col-sm-6'>  
+	        <div class="form-group">  
+	            <label>选择开始时间：</label>  
+	            <!--指定 date标记-->  
+	            <div class='input-group date' id='datetimepicker1'>  
+	                <input type='text' class="form-control" name="startdate" />  
+	                <span class="input-group-addon">  
+	                    <span class="glyphicon glyphicon-calendar"></span>  
+	                </span>  
+	            </div>  
+	        </div>  
+	    </div>  
+	    <div class='col-sm-6'>  
+	        <div class="form-group">  
+	            <label>选择结束时间：</label>  
+	            <!--指定 date标记-->  
+	            <div class='input-group date' id='datetimepicker2'>  
+	                <input type='text' class="form-control" name="enddate"/>  
+	                <span class="input-group-addon">  
+	                    <span class="glyphicon glyphicon-calendar"></span>  
+	                </span>  
+	            </div>  
+	        </div>  
+	    </div>  
+	</div> 
 
-<div class="aa">
-	<div class="input-group date" data-provide="datepicker">
-	    <input type="text" class="form-control">
-	    <div class="input-group-addon">
-	        <span class="glyphicon glyphicon-th"></span>
-	    </div>
-	</div>
-</div>  
+	<input type="submit" value="save">
+</form>
+<!-- <script src="/static/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/bootstrap/js/moment-with-locales.js"></script> -->
+{% endblock %}
 
-<div class="aa">
-	<div class="input-group date" data-provide="datepicker">
-	    <input type="text" class="form-control">
-	    <div class="input-group-addon">
-	        <span class="glyphicon glyphicon-th"></span>
-	    </div>
-	</div>
-</div>
+{% block js_content %}
 
+<script src="/static/bootstrap/js/moment-with-locales.js"></script>
+<script src="/static/bootstrap/js/bootstrap-datepicker.js"></script>
+<script src="/static/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript"> 
+  $(function () {  
+      var picker1 = $('#datetimepicker1').datetimepicker({  
+          format: 'YYYY-MM-DD',  
+          locale: moment.locale('zh-cn'),  
+          //minDate: '2016-7-1'  
+      });  
+      var picker2 = $('#datetimepicker2').datetimepicker({  
+          format: 'YYYY-MM-DD',  
+          locale: moment.locale('zh-cn')  
+      });  
+      //动态设置最小值  
+      picker1.on('dp.change', function (e) {  
+          picker2.data('DateTimePicker').minDate(e.date);  
+      });  
+      //动态设置最大值  
+      picker2.on('dp.change', function (e) {  
+          picker1.data('DateTimePicker').maxDate(e.date);  
+      });  
+  });  
+  </script> 
 {% endblock %}

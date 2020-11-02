@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponse
+from telnet_test import TelnetClient
 
 # Create your views here.
 from django.views.generic import (
@@ -19,6 +20,17 @@ def index(request):
     return render(request, 'index.html')
 
 def Date_View(request):
+	if request.method == "POST":
+		startdate = request.POST.get("startdate")
+		enddate = request.POST.get("enddate")
+		print(startdate)
+		print(enddate)
+		command = 'sh /app1/yn5301/sj/cheshang/def/cs_sys_list2.sh'+' '+startdate+' '+enddate
+		print(command)
+		t =TelnetClient()
+		t.cmd_run(command)
+		return reverse('lpzx:lpzx-list')
+		# return render(request, 'pages/page_list.html')
 	return render(request, 'pages/date.html')
 
 class Create_View(CreateView):
