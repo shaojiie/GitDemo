@@ -29,8 +29,8 @@ def Date_View(request):
 		print(command)
 		t =TelnetClient()
 		t.cmd_run(command)
-		return reverse('lpzx:lpzx-list')
-		# return render(request, 'pages/page_list.html')
+		# return reverse('lpzx:lpzx-list')
+		return render(request, 'pages/page_list.html')
 	return render(request, 'pages/date.html')
 
 class Create_View(CreateView):

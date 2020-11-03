@@ -1,48 +1,13 @@
-{% extends 'base.html' %}
-{% block anther_content_area %}
-<link href="/static/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-<link href="/static/bootstrap/css/bootstrap-datepicker3.css" rel="stylesheet">
-<link href="/static/bootstrap/css/tree_load.css" rel="stylesheet">
-<!-- <link href="../templates/pages/date.css" rel="stylesheet"> -->
-<!-- <link href="date.css" rel="stylesheet"> -->
-{% endblock %}
-
-{% block content %}
-<form action='.' method="POST"> {% csrf_token %}
-<!-- ---------------------------- -->
-	<h1>定损清单</h1>
-	<div class="row">  
-	    <div class='col-sm-6'>  
-	        <div class="form-group">  
-	            <label>选择开始时间：</label>  
-	            <!--指定 date标记-->  
-	            <div class='input-group date' id='datetimepicker1'>  
-	                <input type='text' class="form-control" name="startdate" />  
-	                <span class="input-group-addon">  
-	                    <span class="glyphicon glyphicon-calendar"></span>  
-	                </span>  
-	            </div>  
-	        </div>  
-	    </div>  
-	    <div class='col-sm-6'>  
-	        <div class="form-group">  
-	            <label>选择结束时间：</label>  
-	            <!--指定 date标记-->  
-	            <div class='input-group date' id='datetimepicker2'>  
-	                <input type='text' class="form-control" name="enddate"/>  
-	                <span class="input-group-addon">  
-	                    <span class="glyphicon glyphicon-calendar"></span>  
-	                </span>  
-	            </div>  
-	        </div>  
-	    </div>  
-	</div> 
-
-	<input type="submit" value="save">
-</form>
-
-<div class="loading hide">
-<svg x="0" y="0" width="258" height="258">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tree_load.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <svg x="0" y="0" width="258" height="258">
   
         <g clip-path="url(#clip-path)">
           
@@ -136,57 +101,5 @@
           </clipPath>
           
       </svg>
-</div> 
-<!-- <script src="/static/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/static/bootstrap/js/moment-with-locales.js"></script> -->
-{% endblock %}
-
-{% block js_content %}
-
-<script src="/static/bootstrap/js/moment-with-locales.js"></script>
-<script src="/static/bootstrap/js/bootstrap-datepicker.js"></script>
-<script src="/static/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-
-<script type="text/javascript"> 
-  $(function () {  
-      var picker1 = $('#datetimepicker1').datetimepicker({  
-          format: 'YYYY-MM-DD',  
-          locale: moment.locale('zh-cn'),  
-          //minDate: '2016-7-1'  
-      });  
-      var picker2 = $('#datetimepicker2').datetimepicker({  
-          format: 'YYYY-MM-DD',  
-          locale: moment.locale('zh-cn')  
-      });  
-      //动态设置最小值  
-      picker1.on('dp.change', function (e) {  
-          picker2.data('DateTimePicker').minDate(e.date);  
-      });  
-      //动态设置最大值  
-      picker2.on('dp.change', function (e) {  
-          picker1.data('DateTimePicker').maxDate(e.date);  
-      });  
-
-          $('div.loading').show();
-
-    $.ajax({
-        url: "/ajax_handler.html/",
-        type: 'GET',
-        data: {},
-        success: function (response) {
-            var content = response.content;
-            $('#content').html(content);
-
-            //请求完成，隐藏模态框
-            $('div.loading').hide();
-        },
-        error: function () {
-            $('#content').html('server error...');
-
-            //请求完成，隐藏模态框
-            $('div.loading').hide();
-        }
-    })
-  });  
-  </script> 
-{% endblock %}
+</body>
+</html>
