@@ -3,12 +3,11 @@
 <link href="/static/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <link href="/static/bootstrap/css/bootstrap-datepicker3.css" rel="stylesheet">
 <link href="/static/bootstrap/css/tree_load.css" rel="stylesheet">
-<link href="../templates/pages/date.css" rel="stylesheet">
+<!-- <link href="../templates/pages/date.css" rel="stylesheet"> -->
 <!-- <link href="date.css" rel="stylesheet"> -->
 {% endblock %}
 
 {% block content %}
-<div>
 <div class="load">
 	<form action='.' method="POST"> {% csrf_token %}
 	<!-- ---------------------------- -->
@@ -17,7 +16,6 @@
 		    <div class='col-sm-6'>  
 		        <div class="form-group">  
 		            <label>选择开始时间：</label>  
-		            <!--指定 date标记-->  
 		            <div class='input-group date' id='datetimepicker1'>  
 		                <input type='text' class="form-control" name="startdate" />  
 		                <span class="input-group-addon">  
@@ -29,7 +27,6 @@
 		    <div class='col-sm-6'>  
 		        <div class="form-group">  
 		            <label>选择结束时间：</label>  
-		            <!--指定 date标记-->  
 		            <div class='input-group date' id='datetimepicker2'>  
 		                <input type='text' class="form-control" name="enddate"/>  
 		                <span class="input-group-addon">  
@@ -38,23 +35,20 @@
 		            </div>  
 		        </div>  
 		    </div>  
-		<!-- </div>  -->
+		</div> 
 
 		<input type="submit" id="btn" value="save">
 	</form>
 </div>
-{% include 'tree_loading.html' %}
-</div>
-<div class = "download hide">
-	<p>运行完成！下载点击：</p>
-	<a href="/../download/">下载</a>
-</div>
-<div id="content">
-    <p>正在请求服务器数据....</p>
-</div>
+<!-- <div class="loading ">
+
+</div>  -->
 <!-- <script src="/static/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/static/bootstrap/js/moment-with-locales.js"></script> -->
+{% include 'tree_loading.html' %}
 {% endblock %}
+
+
 
 {% block js_content %}
 
@@ -64,7 +58,7 @@
 
 <script type="text/javascript"> 
   $(function () {  
-  	$('div.loading_tree').show();
+  	$('div.loading').show();
 
     $.ajax({
         url: "/ajax_handler/",
@@ -75,14 +69,13 @@
             $('#content').html(content);
 
             //请求完成，隐藏模态框
-            $('div.loading_tree').hide();
-            $('div.download').show();
+            $('div.loading').hide();
         },
         error: function () {
             $('#content').html('server error...');
 
             //请求完成，隐藏模态框
-            $('div.loading_tree').hide();
+            $('div.loading').hide();
         }
     })
       var picker1 = $('#datetimepicker1').datetimepicker({  
@@ -107,7 +100,7 @@
   $('#btn').click(function(){
  
     //只传一个url，表示在id为#new-projects的元素里加载index.html
-    $('div.loading_tree').show();
+    $('div.loading').show();
 })
   </script> 
 {% endblock %}
